@@ -1,0 +1,190 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AskOpenAIForRecommendation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.CF91EDABB8D_generateChatCompletionConsolidated_Create.Bundle;assembly=CF91EDABB8D_generate.3PGTP2T0WMI16ZlvalYc7e1" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_MedicarePlanInfo" Type="InArgument(x:String)" />
+    <x:Property Name="out_Recommendations" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1368,849</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AskOpenAIForRecommendation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Entity</x:String>
+      <x:String>UiPath.IntegrationService.Infrastructure.Descriptor</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Enums</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Telemetry</x:String>
+      <x:String>UiPath.BAF.Infrastructure</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Connection</x:String>
+      <x:String>UiPath.MicrosoftAzureOpenAI.IntegrationService.Activities</x:String>
+      <x:String>UiPath.IntegrationCore.Activities</x:String>
+      <x:String>UiPath.BAF.Activities</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Contracts</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.BAF.Infrastructure</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Infrastructure</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftAzureOpenAI.IntegrationService.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AskOpenAIForRecommendation" sap:VirtualizedContainerService.HintSize="450,526" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <isactr:ConnectorActivity Configuration="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" ConnectionId="075c8ba3-483b-495f-87f3-89f91edabb8d" DisplayName="Generate Chat Completion" sap:VirtualizedContainerService.HintSize="388,285" sap2010:WorkflowViewState.IdRef="ConnectorActivity_1" UiPathActivityTypeId="5c6c646f-d321-3248-8fb1-a1829d267bb6">
+      <isactr:ConnectorActivity.FieldObjects>
+        <isactr:FieldObject Name="modelId" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">gpt-35-turbo-16k</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="prompt" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">["Based on the plans and its details listed below, recommend ,with reasoning, the cheapest plan, value for money plan, and the most comprehensive plan. Provide their respective Plan IDs as well : "+in_MedicarePlanInfo]</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="knowledge_base" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="vector_db" Type="FieldArgument" />
+        <isactr:FieldObject Name="embedding_model" Type="FieldArgument" />
+        <isactr:FieldObject Name="pineconeApiKey" Type="FieldArgument" />
+        <isactr:FieldObject Name="pineconeEnv" Type="FieldArgument" />
+        <isactr:FieldObject Name="pineconeIndex" Type="FieldArgument" />
+        <isactr:FieldObject Name="_namespace" Type="FieldArgument" />
+        <isactr:FieldObject Name="apiminus_signversion" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">2023-10-01-preview</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="instruction" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">Act as a Medicare plan consultant.</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="max_tokens" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int32">1920</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="temperature" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Double">1</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="n" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int64">1</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="top_p" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Double">1</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="stream" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="presence_penalty" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int32">0</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="frequency_penalty" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:Int32">0</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="out_text" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="x:String">[out_Recommendations]</OutArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="Jit_generateChatCompletionConsolidated" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="uiascb:generateChatCompletionConsolidated_Create" />
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+      </isactr:ConnectorActivity.FieldObjects>
+    </isactr:ConnectorActivity>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[out_Recommendations]" />
+  </Sequence>
+</Activity>
